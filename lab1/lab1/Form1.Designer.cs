@@ -42,6 +42,8 @@
             this.loadEncodeText = new System.Windows.Forms.Button();
             this.setKeyBt = new System.Windows.Forms.Button();
             this.keyBox = new System.Windows.Forms.TextBox();
+            this.saveTxtBt = new System.Windows.Forms.Button();
+            this.saveEncodeBt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // encodeBt
@@ -167,11 +169,33 @@
             this.keyBox.TabIndex = 13;
             this.keyBox.Visible = false;
             // 
+            // saveTxtBt
+            // 
+            this.saveTxtBt.Location = new System.Drawing.Point(140, 181);
+            this.saveTxtBt.Name = "saveTxtBt";
+            this.saveTxtBt.Size = new System.Drawing.Size(75, 23);
+            this.saveTxtBt.TabIndex = 14;
+            this.saveTxtBt.Text = "Save";
+            this.saveTxtBt.UseVisualStyleBackColor = true;
+            this.saveTxtBt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.saveTxtBt_MouseClick);
+            // 
+            // saveEncodeBt
+            // 
+            this.saveEncodeBt.Location = new System.Drawing.Point(348, 181);
+            this.saveEncodeBt.Name = "saveEncodeBt";
+            this.saveEncodeBt.Size = new System.Drawing.Size(75, 23);
+            this.saveEncodeBt.TabIndex = 15;
+            this.saveEncodeBt.Text = "Save";
+            this.saveEncodeBt.UseVisualStyleBackColor = true;
+            this.saveEncodeBt.MouseClick += new System.Windows.Forms.MouseEventHandler(this.saveEncodeBt_MouseClick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(439, 260);
+            this.Controls.Add(this.saveEncodeBt);
+            this.Controls.Add(this.saveTxtBt);
             this.Controls.Add(this.keyBox);
             this.Controls.Add(this.setKeyBt);
             this.Controls.Add(this.loadEncodeText);
@@ -209,6 +233,8 @@
         private System.Windows.Forms.Button loadEncodeText;
         private System.Windows.Forms.Button setKeyBt;
         private System.Windows.Forms.TextBox keyBox;
+        private System.Windows.Forms.Button saveTxtBt;
+        private System.Windows.Forms.Button saveEncodeBt;
     }
 }
 

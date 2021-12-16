@@ -16,7 +16,7 @@ namespace lab1
         //String revhabet = "@#$%^&*()_+=-<>.,`~\"\'|\\/?qwertyuiopasdfghjklzxcvbnm 0987654321!";
         String revhabet;
         String normallyT;
-        String decodeT;
+        String encodeT;
         public Form1()
         {
             InitializeComponent();
@@ -25,6 +25,8 @@ namespace lab1
         {
             revhabet = genKey(alphabet);
             keyBox.Text = revhabet;
+            textBox1.ScrollBars = ScrollBars.Vertical;
+            encodeTextBox2.ScrollBars = ScrollBars.Vertical;
         }
 
         public static string getStep(string t)
@@ -33,8 +35,6 @@ namespace lab1
             return t.Substring(1, t.Length - 1) + t.Substring(0, 1);
         }
         
-
-
         private string enigma(String text, String outside, String inside)
         {
             String outText = "";
@@ -86,8 +86,8 @@ namespace lab1
             {
                 //text from file
             }
-            decodeT = encodeTextBox2.Text;
-            textBox1.Text = enigma(decodeT, revhabet, alphabet);
+            encodeT = encodeTextBox2.Text;
+            textBox1.Text = enigma(encodeT, revhabet, alphabet);
         }
 
         private void clear_click(object sender, EventArgs e)
@@ -99,8 +99,7 @@ namespace lab1
             //    return;
             //MessageBox.Show(ofd.FileName.Replace(".txt", "Decoded.txt"));
             //revhabet = getStep(revhabet);
-            //MessageBox.Show(revhabet);
-            
+            //MessageBox.Show(revhabet);   
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -122,14 +121,15 @@ namespace lab1
         {
             statusLb.Text = "Loading";
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             if (ofd.ShowDialog() == DialogResult.Cancel)
                 return;
             textBox1.Text = System.IO.File.ReadAllText(ofd.FileName);
-            decodeT = textBox1.Text.ToLower();
-            normallyT = enigma(decodeT, alphabet, revhabet);
+            encodeT = textBox1.Text.ToLower();
+            normallyT = enigma(encodeT, alphabet, revhabet);
             encodeTextBox2.Text = normallyT;
             //ofd.FileName.Replace(".txt", "Decoded.txt");
-            System.IO.File.WriteAllText(ofd.FileName.Replace(".txt", "_ENCODED.txt"), normallyT);
+            
             statusLb.Text = "Complete";
         }
 
@@ -137,13 +137,14 @@ namespace lab1
         {
             statusLb.Text = "Loading";
             OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
             if (ofd.ShowDialog() == DialogResult.Cancel)
                 return;
             encodeTextBox2.Text = System.IO.File.ReadAllText(ofd.FileName);
             normallyT = encodeTextBox2.Text;
-            decodeT = enigma(normallyT, revhabet, alphabet);
-            textBox1.Text = decodeT;
-            System.IO.File.WriteAllText(ofd.FileName.Replace(".txt", "_DECODED.txt"), decodeT);
+            encodeT = enigma(normallyT, revhabet, alphabet);
+            textBox1.Text = encodeT;
+            
             statusLb.Text = "Complete";
         }
 
@@ -159,12 +160,32 @@ namespace lab1
                 revhabet = keyBox.Text;
                 statusLb.Text = "Key set";
             }
-            
         }
 
-        private void keyBox_TextChanged(object sender, EventArgs e)
+        private void saveTxtBt_MouseClick(object sender, MouseEventArgs e)
         {
+            if (String.IsNullOrEmpty(normallyT))
+            {
+                normallyT = textBox1.Text;
+            }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            System.IO.File.WriteAllText(saveFileDialog.FileName, normallyT);
+        }
 
+        private void saveEncodeBt_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (String.IsNullOrEmpty(encodeT))
+            {
+                encodeT = encodeTextBox2.Text;
+            }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = "Text files(*.txt)|*.txt|All files(*.*)|*.*";
+            if (saveFileDialog.ShowDialog() == DialogResult.Cancel)
+                return;
+            System.IO.File.WriteAllText(saveFileDialog.FileName, encodeT);
         }
     }
 }

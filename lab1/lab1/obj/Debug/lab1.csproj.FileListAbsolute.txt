@@ -9,3 +9,14 @@ E:\Projects\sec\lab1\lab1\obj\Debug\lab1.csproj.GenerateResource.cache
 E:\Projects\sec\lab1\lab1\obj\Debug\lab1.csproj.CoreCompileInputs.cache
 E:\Projects\sec\lab1\lab1\obj\Debug\lab1.exe
 E:\Projects\sec\lab1\lab1\obj\Debug\lab1.pdb
+E:\Projects\security\lab1\lab1\bin\Debug\lab1.exe.config
+E:\Projects\security\lab1\lab1\bin\Debug\lab1.exe
+E:\Projects\security\lab1\lab1\bin\Debug\lab1.pdb
+E:\Projects\security\lab1\lab1\obj\Debug\lab1.csproj.AssemblyReference.cache
+E:\Projects\security\lab1\lab1\obj\Debug\lab1.csproj.SuggestedBindingRedirects.cache
+E:\Projects\security\lab1\lab1\obj\Debug\lab1.Form1.resources
+E:\Projects\security\lab1\lab1\obj\Debug\lab1.Properties.Resources.resources
+E:\Projects\security\lab1\lab1\obj\Debug\lab1.csproj.GenerateResource.cache
+E:\Projects\security\lab1\lab1\obj\Debug\lab1.csproj.CoreCompileInputs.cache
+E:\Projects\security\lab1\lab1\obj\Debug\lab1.exe
+E:\Projects\security\lab1\lab1\obj\Debug\lab1.pdb
